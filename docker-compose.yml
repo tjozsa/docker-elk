@@ -74,15 +74,15 @@ services:
       context: filebeat/
       args:
         ELK_VERSION: $ELK_VERSION
-      volumes:
-        - type: bind
-          source: ./filebeat/config/kibana.yml
-          target: /usr/share/kibana/config/kibana.yml
-          read_only: true
-      networks:
-        - elk
-      depends_on:
-        - logstash
+    volumes:
+      - type: bind
+        source: ./filebeat/config/kibana.yml
+        target: /usr/share/kibana/config/kibana.yml
+        read_only: true
+    networks:
+      - elk
+    depends_on:
+      - logstash
 
 networks:
   elk:
