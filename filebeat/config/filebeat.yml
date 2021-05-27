@@ -19,8 +19,10 @@ processors:
   - add_docker_metadata:
 
 output.logstash:
+  enabled: true
+  ssl.verification_mode: none
   hosts: ["logstash:5044"]
 
-setup.kibana.host: "kibana:5601"
-setup.kibana.username: elastic
-setup.kibana.password: changeme
+# setup.kibana.host: "kibana:5601"
+# setup.kibana.username: elastic
+# setup.kibana.password: changeme
