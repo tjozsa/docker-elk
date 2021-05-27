@@ -20,3 +20,7 @@ processors:
 
 output.logstash:
   hosts: ["logstash:5044"]
+
+setup.kibana.host: "kibana:5601"
+setup.kibana.username: elastic
+setup.kibana.password: changeme
