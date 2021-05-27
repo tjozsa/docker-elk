@@ -1,2 +1,22 @@
+setup.dashboards.enabled: true
+setup.template.enabled: true
+setup.template.settings:
+  index.number_of_shards: 1
+
+filebeat.config:
+  modules:
+    path: ${path.config}/modules.d/*.yml
+    # Reload module configs as they change:
+    reload.enabled: false
+
+# To enable hints based autodiscover, remove `filebeat.config.inputs` configuration and uncomment this:
+filebeat.autodiscover:
+  providers:
+    - type: docker
+      hints.enabled: true
+
+processors:
+  - add_docker_metadata:
+
 output.logstash:
   hosts: ["logstash:5044"]
