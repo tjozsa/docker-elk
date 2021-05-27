@@ -60,7 +60,7 @@ services:
     volumes:
       - type: bind
         source: ./kibana/config/kibana.yml
-        target: :/usr/share/kibana/config/kibana.yml
+        target: /usr/share/kibana/config/kibana.yml
         read_only: true
     ports:
       - "5601:5601"
