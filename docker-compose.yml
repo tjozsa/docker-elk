@@ -59,8 +59,8 @@ services:
         ELK_VERSION: $ELK_VERSION
     volumes:
       - type: bind
-        source: ./kibana/config/filebeat.yml
-        target: :/usr/share/filebeat/filebeat.yml
+        source: ./kibana/config/kibana.yml
+        target: :/usr/share/kibana/config/kibana.yml
         read_only: true
     ports:
       - "5601:5601"
@@ -76,8 +76,8 @@ services:
         ELK_VERSION: $ELK_VERSION
     volumes:
       - type: bind
-        source: ./filebeat/config/kibana.yml
-        target: /usr/share/kibana/config/kibana.yml
+        source: ./filebeat/config/filebeat.yml
+        target: /usr/share/filebeat/filebeat.yml
         read_only: true
     networks:
       - elk
